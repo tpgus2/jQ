@@ -9,8 +9,11 @@
         $(function() {
             const aniwidth = $(".banner").width();
             $(".bannerslide").width(aniwidth);
-            // $(".bannerWrapper").css("marginLeft", -aniwidth);
-            $(".bannerWrapper").animate({"marginLeft" : -aniwidth},400); /*{json},시간*/
+
+            setInterval(function(){
+                $(".bannerWrapper").animate({"marginLeft" : "-="+aniwidth},400);
+            },3000)
+      
         })
     </script>
     <style>
