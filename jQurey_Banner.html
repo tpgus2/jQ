@@ -7,11 +7,16 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script>
         $(function() {
-            const aniwidth = $(".banner").width();
-            $(".bannerslide").width(aniwidth);
+            const aniWidth = $(".banner").width();
+            $(".bannerslide").width(aniWidth);
 
             setInterval(function(){
-                $(".bannerWrapper").animate({"marginLeft" : "-="+aniwidth},400);
+                $(".bannerWrapper").animate({"marginLeft" : "-="+aniWidth},400,function() { 
+                    /* $("대상").animate({스타일:값},속도,function(){애니메이션 끝나고 실행해라}) */
+
+                    $(".bannerslide").eq(0).appendTo($(".bannerWrapper")); 
+                    $(".bannerWrapper").css({"marginLeft" : 0})
+                });
             },3000)
       
         })
@@ -40,7 +45,7 @@
         <div class="bannerWrapper">
             <div class="bannerslide bg0"></div>
             <div class="bannerslide bg1"></div>
-            <div class="bannerslide bg2s"></div>
+            <div class="bannerslide bg2"></div>
         </div>
         <div class="banner-btn"></div>
     </div>
