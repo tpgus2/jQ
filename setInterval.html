@@ -9,9 +9,15 @@
     <script>
 
         $(function(){
-            const bglist = ["pink","red","gray","green","blue", "black"];
-            let count = 100 % bglist.length;
-            $("body").css("background",bglist[count]);
+            const bglist = ["pink","puple","gray","green","blue", "black"];
+            let count = 0;
+            
+            setInterval(function () {
+                count++;
+                count = count % bglist.length;
+                $("body").css("background",bglist[count]);
+            },3000) // 3초 뒤부터 3초마다 실행하겠다
+            $("body").css("background",bglist[count]); //화면이 열리자마자 1회 실행
         })
     </script>
 </head>
